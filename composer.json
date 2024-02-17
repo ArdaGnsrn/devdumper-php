@@ -1,0 +1,49 @@
+{
+    "name": "ardagnsrn/devdumper-php",
+    "description": "PHP library for dumping variables to DevDumper",
+    "keywords": [
+        "devdumper",
+        "dump",
+        "debug"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Arda GUNSUREN",
+            "homepage": "https://www.ardagunsuren.com",
+            "email": "ardagunsuren@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "type": "project",
+    "require": {
+        "php": "^7.0",
+        "guzzlehttp/guzzle": "7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.0",
+        "squizlabs/php_codesniffer": "^3.0",
+        "phpmd/phpmd" : "^2.6",
+        "phpdocumentor/phpdocumentor" : "^2.0",
+        "symfony/var-dumper": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ArdaGnsrn\\DevDumper\\": "src/"
+        }
+    },
+    "scripts": {
+        "test": [
+            "@php vendor/bin/phpunit"
+        ],
+        "psr2check": [
+            "@php vendor/bin/phpcs --standard=PSR2 src/"
+        ],
+        "psr2autofix": [
+            "@php vendor/bin/phpcbf --standard=PSR2 src/"
+        ],
+        "docs": [
+            "@php vendor/bin/phpdoc -d \"src\" -t \"docs\""
+        ]
+    }
+}
