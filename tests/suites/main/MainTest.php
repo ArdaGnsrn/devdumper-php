@@ -23,9 +23,11 @@ class MainTest extends TestCase
      */
     public function testDumper()
     {
-        $object = new DevDumper();
-        $object->dump([
+        $devDumper = new DevDumper();
+        $devDumper->dump([
             "lorem" => "ipsum"
-        ]);
+        ], "ok", "test");
+
+        ddump("ddump test");
     }
 }

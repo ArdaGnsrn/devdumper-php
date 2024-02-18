@@ -8,12 +8,18 @@ use ArdaGnsrn\DevDumper\Payloads\TypePayload;
 
 class DevDumper
 {
-    public function dump($variable)
+    public function dump(...$variables): DevDumper
     {
-        $payloadFactory = (new PayloadFactory())
-            ->setPayload(new ContentPayload($variable))
-            ->setPayload(new ColorPayload('green'));
+        if (empty($variables)) return $this;
 
-        (new Client())->sendPayload($payloadFactory);
+        foreach ($variables as $variable) {
+            $payloadFactory = (new PayloadFactory())
+                ->setPayload(new ContentPayload($variable))
+                ->setPayload(new ColorPayload('green'));
+
+            (new Client())->sendPayload($payloadFactory);
+        }
+
+        return $this;
     }
 }

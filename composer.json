@@ -30,7 +30,10 @@
     "autoload": {
         "psr-4": {
             "ArdaGnsrn\\DevDumper\\": "src/"
-        }
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "scripts": {
         "test": [
