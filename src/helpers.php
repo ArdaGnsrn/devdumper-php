@@ -16,14 +16,14 @@ if (!function_exists('ddump')) {
         return $dumper;
     }
 }
-if (!function_exists('dddump')) {
+if (!function_exists('ddie')) {
     /**
      * Dump and Die
      *
      * @param ...$args
      * @return void
      */
-    function dddump(...$args)
+    function ddie(...$args)
     {
         ddump(...$args)->die();
     }
