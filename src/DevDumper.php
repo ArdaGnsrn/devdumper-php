@@ -33,6 +33,11 @@ class DevDumper
         return $this->request($payload);
     }
 
+    public function die()
+    {
+        exit(0);
+    }
+
     protected function request(Payload $payload): self
     {
         $request = new Request();
