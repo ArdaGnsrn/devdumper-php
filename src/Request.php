@@ -3,8 +3,10 @@
 namespace ArdaGnsrn\DevDumper;
 
 use ArdaGnsrn\DevDumper\Exceptions\ServerIsNotRunningException;
+use GuzzleHttp\Client;
+use Psr\Http\Message\ResponseInterface;
 
-class Client
+class Request
 {
     protected $port;
     protected $host;
@@ -15,7 +17,7 @@ class Client
         $this->port = $port;
         $this->host = $host;
 
-        $this->client = new \GuzzleHttp\Client([
+        $this->client = new Client([
             'base_uri' => "http://{$this->host}:{$this->port}",
             'headers' => [
                 'Content-Type' => 'application/json',
@@ -34,14 +36,12 @@ class Client
         }
     }
 
-    public function sendPayload(PayloadFactory $factory)
+    public function send($body): ResponseInterface
     {
         if (!$this->testConnection()) throw new ServerIsNotRunningException($this->host, $this->port);
 
-        $this->client->post('/', [
-            'json' => $factory->getValues()
+        return $this->client->post('/', [
+            'json' => $body
         ]);
     }
-
-
 }

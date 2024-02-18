@@ -2,7 +2,7 @@
 
 namespace ArdaGnsrn\DevDumper\Payloads;
 
-class ColorPayload extends BasePayload
+class ColorPayload extends Payload
 {
     const ACCEPTED_COLORS = [
         'green',
@@ -12,19 +12,28 @@ class ColorPayload extends BasePayload
         'blue',
         'gray'
     ];
-
     public function getKey(): string
     {
         return 'color';
     }
 
-    public function validation($value): bool
+    public function validation($content): bool
     {
-        return in_array($value, self::ACCEPTED_COLORS);
+        print_r(gettype($content[0]));
+        return !empty($content[0]) && in_array($content[0], self::ACCEPTED_COLORS);
     }
 
-    public function getExceptionMessage($value): string
+    public function handle(...$content)
     {
-        return 'Validation failed for value: ' . $value . '. Accepted colors: ' . implode(', ', self::ACCEPTED_COLORS);
+        parent::handle(...$content);
+        $this->content = $content;
+    }
+
+    public function getContent(): array
+    {
+        $contents = $this->content;
+        return [
+            'color' => $contents[0]
+        ];
     }
 }

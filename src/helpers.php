@@ -7,6 +7,6 @@ if (!function_exists('ddump')) {
     {
         $dumper = new DevDumper();
         $dumper->dump(...$args);
-        exit(0);
+        return $dumper;
     }
 }
