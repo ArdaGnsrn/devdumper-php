@@ -113,7 +113,7 @@ class CustomDumper extends CliDumper
     /**
      * {@inheritdoc}
      */
-    public function dump(Data $data, $output = null, array $extraDisplayOptions = array())
+    public function dump(Data $data, $output = null, array $extraDisplayOptions = array()): ?string
     {
         $this->extraDisplayOptions = $extraDisplayOptions;
         $result = parent::dump($data, $output);
@@ -322,7 +322,7 @@ EOHTML
     /**
      * {@inheritdoc}
      */
-    protected function style($style, $value, $attr = array())
+    protected function style(string $style, string $value, array $attr = array()): string
     {
         if ('' === $value) {
             return '';

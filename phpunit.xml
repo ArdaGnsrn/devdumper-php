@@ -1,11 +1,7 @@
 <phpunit
 		colors="true"
 		bootstrap="./tests/bootstrap.php"
-		convertErrorsToExceptions="true"
-		convertNoticesToExceptions="false"
-		convertWarningsToExceptions="false"
 		beStrictAboutTestsThatDoNotTestAnything="false"
-		strict="true"
 		stopOnError="false"
 		stopOnFailure="false"
 		stopOnIncomplete="false"
@@ -17,11 +13,6 @@
 			<directory>./tests/suites/main/</directory>
 		</testsuite>
 	</testsuites>
-	<filter>
-		<whitelist processUncoveredFilesFromWhitelist="false">
-			<directory suffix=".php">./src/</directory>
-		</whitelist>
-	</filter>
 	<logging>
 		<log type="coverage-html"
 			 target="./build/output/coverage/html"
