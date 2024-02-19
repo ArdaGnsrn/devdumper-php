@@ -25,7 +25,6 @@
         "phpunit/phpunit": "^6.0",
         "squizlabs/php_codesniffer": "^3.0",
         "phpmd/phpmd" : "^2.6",
-        "phpdocumentor/phpdocumentor" : "^2.0",
         "symfony/var-dumper": "^4.0"
     },
     "autoload": {
@@ -45,9 +44,6 @@
         ],
         "psr2autofix": [
             "@php vendor/bin/phpcbf --standard=PSR2 src/"
-        ],
-        "docs": [
-            "@php vendor/bin/phpdoc -d \"src\" -t \"docs\""
         ]
     }
 }
