@@ -46,6 +46,7 @@ class DevDumper
             'type' => $payload->getKey(),
             'meta' => [
                 'php_version' => phpversion(),
+                ...(new Backtrace())->getFile()
             ],
         ], $payload->getContent()));
 
