@@ -11,7 +11,7 @@ This is a simple PHP library for debugging purposes. It is a simple and easy to 
 Requirements
 ------------
 
-* PHP >= 7.0;
+* PHP >= 7.4;
 * composer.
 
 Installation
